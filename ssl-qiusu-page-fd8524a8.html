@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>球速体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-app, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f7fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 20px 16px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 40, 50, 0.06);
+            padding: 32px 24px 44px;
+            transition: box-shadow 0.25s ease;
+        }
+
+        /* 开场短句 –– 大号衬线感 */
+        .opening {
+            font-size: 1.9rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: #115e6b;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-left: 5px solid #1f9aae;
+            padding-left: 20px;
+            background: linear-gradient(to right, #ebf8fa, transparent);
+        }
+
+        .opening strong {
+            font-weight: 600;
+            color: #0a4b55;
+        }
+
+        /* 承接段落 – 知识说明 */
+        .context {
+            background: #f0fafc;
+            border-radius: 20px;
+            padding: 22px 20px;
+            margin: 18px 0 28px;
+            color: #1d3b44;
+            border: 1px solid #d6ecf0;
+            box-shadow: inset 0 1px 3px rgba(31, 154, 174, 0.06);
+            font-size: 1.02rem;
+        }
+
+        .context a {
+            color: #0b6d7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #85cbd7;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        .context a:hover {
+            color: #06424d;
+            border-bottom: 1px solid #06424d;
+        }
+
+        /* 网格卡片 –– 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0 28px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px 14px 18px;
+            box-shadow: 0 4px 12px rgba(0, 60, 70, 0.04);
+            border: 1px solid #dbeef2;
+            transition: transform 0.2s ease, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            border-color: #80c6d4;
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            font-size: 1.6rem;
+            line-height: 1;
+            margin-bottom: 6px;
+            color: #278896;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.06rem;
+            color: #0a4b55;
+            letter-spacing: 0.01em;
+            margin-bottom: 6px;
+        }
+
+        .card-desc {
+            color: #2c4c58;
+            font-size: 0.94rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            background: #edf6f9;
+            border-radius: 24px;
+            padding: 22px 20px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 1rem;
+            color: #1b4955;
+            border-left: 6px solid #3ab0c2;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .closing p {
+            margin-bottom: 10px;
+        }
+
+        .closing strong {
+            color: #0a5a66;
+        }
+
+        .closing a {
+            color: #0b6d7a;
+            text-decoration: none;
+            border-bottom: 1px solid #8ac7d3;
+            font-weight: 500;
+        }
+
+        .closing a:hover {
+            color: #033942;
+            border-bottom: 1px solid #033942;
+        }
+
+        .faq-mini {
+            margin: 28px 0 10px;
+            background: #f5fbfd;
+            border-radius: 18px;
+            padding: 12px 16px 14px;
+            border: 1px solid #cbe7ed;
+        }
+
+        .faq-mini summary {
+            font-weight: 600;
+            color: #165b68;
+            cursor: pointer;
+            padding: 6px 0;
+            font-size: 0.98rem;
+            letter-spacing: 0.01em;
+        }
+
+        .faq-mini p {
+            margin-top: 10px;
+            color: #1e4854;
+            font-size: 0.95rem;
+            padding-left: 4px;
+            border-left: 2px solid #57b7c9;
+            padding-left: 14px;
+        }
+
+        hr {
+            margin: 30px 0 14px;
+            border: none;
+            border-top: 1px solid #d5e9ee;
+        }
+
+        .footnote {
+            font-size: 0.85rem;
+            color: #6f8f99;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .page {
+                padding: 20px 14px 28px;
+            }
+            .opening {
+                font-size: 1.5rem;
+                padding-left: 14px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .context {
+                padding: 18px 14px;
+                font-size: 0.96rem;
+            }
+            .closing {
+                padding: 18px 16px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .opening {
+                font-size: 1.35rem;
+            }
+            body {
+                padding: 12px 8px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 开场短句 -->
+    <div class="opening">
+        从一桩简单的想法开始 —— 让信息更透明，让选择更有依据。<br>
+        <strong>球速体育</strong> 正是这样一处安静的观察点。
+    </div>
+
+    <!-- 承接段落 + 站点介绍与可信说明 -->
+    <div class="context">
+        <p>当你打开一个体育服务站点，首先关心的往往是：它的信息是否可靠？它的数据有没有持续性？运行背后是否有清晰的主体与维护逻辑？这些问题并非多余。基于这些考量，<a href="https://ssl-qiusu.com">球速体育</a> 始终把「可追溯的说明」和「一致的体验」作为基础，不渲染热点，不堆积噱头，而是踏实地提供结构化的内容索引与动态资讯。你在这里看到的每一个模块、每一组数据，都经过稳定的版本整理，并保持对访问者知情权的尊重。</p>
+        <p style="margin-top: 12px;">站点采用分层信息架构，从赛事概要、实时数据到技术文档，均有独立的呈现逻辑。不同于常见的聚合门户，<a href="https://ssl-qiusu.com">球速体育</a> 更强调来源的可辨识度与界面的一致性，让使用者能快速定位自己关心的领域，而不被无关元素干扰。</p>
+    </div>
+
+    <!-- 特点列表（网格卡片） -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="card-icon">📋</div>
+            <div class="card-title">透明的信息说明</div>
+            <div class="card-desc">每个内容区域都配有简短的方法说明或数据范围标注，方便你判断背景与时效。</div>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon">🧩</div>
+            <div class="card-title">克制且一致的界面</div>
+            <div class="card-desc">避免过度动效与杂乱布局，用稳定的网格与蓝绿色调降低视觉负担，适合长时间阅读。</div>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">结构化内容索引</div>
+            <div class="card-desc">赛事、数据、资讯按逻辑分区，并提供摘要与标签，帮助快速筛选。</div>
+        </div>
+        <div class="feature-card">
+            <div class="card-icon">🔍</div>
+            <div class="card-title">注重来源可追溯</div>
+            <div class="card-desc">主要数据与更新都会附带简注或参考标识，不是无源之水。</div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (自然融入) -->
+    <details class="faq-mini">
+        <summary>一些常见疑问的简要说明</summary>
+        <p><strong>问：站点信息多久更新？</strong> 核心内容随赛事与实际动态按日或按轮次整理，非实时流式刷新，但保持合理的版本标注。</p>
+        <p style="margin-top: 8px;"><strong>问：是否开放用户投稿或评论？</strong> 目前以编辑整理为主，暂未开放UGC板块，确保信息源可控。</p>
+        <p style="margin-top: 8px;"><strong>问：移动端适配如何？</strong> 本页即采用移动优先的网格与排版，实际站点同样针对手机与平板做了响应式调整。</p>
+    </details>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>站点并不是越大越复杂才值得信任。相反，一个愿意把前提、范围与更新逻辑都摆出来的服务，往往更经得起审视。<strong>球速体育</strong> 的设计思路正是如此：不喧哗，不堆砌，把选择的自由与判断的依据交还给使用者。</p>
+        <p>如果你恰好也在寻找一个结构清晰、叙述克制的体育信息站点，不妨从 <a href="https://ssl-qiusu.com">球速体育</a> 开始了解。没有突兀的弹窗，没有夸大的标语，只有实在的界面与持续的内容积累。</p>
+    </div>
+
+    <hr>
+    <div class="footnote">
+        本页为介绍说明 · 内容侧重可信与结构 · 2025
+    </div>
+</div>
+</body>
+</html>
